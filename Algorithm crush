@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N= scan.nextInt();
+        int M= scan.nextInt();
+        long max=0;
+        
+        long[] arr= new long[N+1];
+    
+        for(int i=0;i<M;i++)
+            {
+            
+            int a = scan.nextInt();
+            int b = scan.nextInt();
+            int k = scan.nextInt();
+
+            arr[a-1]+=k;
+            arr[b]-=k;  
+    
+        }
+        
+        for(int j=1;j<N;j++)
+            {
+           
+            arr[j]=arr[j-1]+arr[j];
+            
+            if(arr[j]>max)
+                {
+                max= arr[j];
+            }
+            
+                      
+        }
+        
+
+        System.out.println(max);
+        
+    }
+}
